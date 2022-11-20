@@ -29,7 +29,6 @@ h1::before{
   height: 225px;
   background: url("../images/image-qr-code.png") no-repeat;
   background-size: cover;
-  background-position: center center;
   border-radius: 10px;
   border: none;
   margin-bottom: 15px;
