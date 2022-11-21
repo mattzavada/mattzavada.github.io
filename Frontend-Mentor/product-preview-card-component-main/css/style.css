@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Montserrat:wght@500&family=Outfit&display=swap');
+
+:root{
+  --DarkCyan: hsl(158, 36%, 37%);
+  --Cream: hsl(30, 38%, 92%);
+  --VeryDarkBlue: hsl(212, 21%, 14%);
+  --DarkGrayishBlue: hsl(228, 12%, 48%);
+  --White: hsl(0, 0%, 100%);
+}
+
+body{
+  background-color: var(--Cream);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container{
+  background-color: var(--White);
+  border: none;
+  border-radius: 20px; 
+  /*Need to hide overflow so corners of image are rounded with the parent div*/
+  overflow: hidden; 
+  max-width: 25rem;
+  margin: 20px;
+}
+
+.image{
+
+}
+
+.image > picture {
+  max-width: 100%;
+}
+.productDetails{
+  padding: 20px;
+}
+
+.productType{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--DarkGrayishBlue);
+  letter-spacing: .5em;
+}
+.productName{
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1em;
+  padding: .5em 0em;
+}
+
+.productDesc {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--DarkGrayishBlue);
+  line-height: 1.7em;
+}
+.prices{
+  padding: 1em 0em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.salePrice{
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  color: var(--DarkCyan);
+  font-size: 30px; 
+  padding-right: 15px;
+}
+
+.originalPrice{
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--DarkGrayishBlue);
+  text-decoration: line-through;
+
+}
+
+.button{
+  background-color: var(--DarkCyan);
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  justify-content: center;
+  color: var(--White);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  display: flex;
+}
+
+.buttonImage{
+  margin-right: 5px;
+}
+
+.attribution { 
+  position: absolute;
+  bottom: 0px;
+  font-size: 11px; 
+  text-align: center; 
+  padding-bottom: 15px;
+}
+.attribution a { 
+  color: hsl(228, 45%, 44%); 
+}
