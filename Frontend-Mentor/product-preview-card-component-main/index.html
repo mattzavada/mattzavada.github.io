@@ -13,18 +13,15 @@
 
 </head>
 <body>
-  <div class="container">
-    <div class="image">
-      <picture>
+  <article class="container">
+      <picture class="image">
         <source media="(max-width: 375px)" srcset="./images/image-product-mobile.jpg">
         <source media="(min-width: 376px)" srcset="./images/image-product-desktop.jpg">
         <img src="./images/image-product-mobile.jpg" alt="Chris standing up holding his daughter Elva">
       </picture>
- 
-    </div>
     
-    <div class="productDetails">
-      <div class="productType">Perfume</div>
+    <section class="productDetails">
+      <div class="productCategory">Perfume</div>
         
       <div class="productName">Gabrielle Essence Eau De Parfum</div>
         
@@ -34,17 +31,18 @@
         <div class="salePrice">$149.99</div>
         <div class="originalPrice">$169.99</div>
       </div>  
-      <div class="button">
+      <button class="button">
         <img src="./images/icon-cart.svg" alt="Cart" class="buttonImage">
           Add to Cart
-      </div>
-    </div>
-  </div>
-  <div class="attribution">
+      </button>
+    </section>
+  </article>
+  
+  <footer class="attribution">
     
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
       Coded by <a href="https://mattzavada.github.io/" target="_blank">Matthew Zavada</a>.
     
-  </div>
+  </footer>
 </body>
 </html>

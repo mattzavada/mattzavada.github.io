@@ -6,25 +6,98 @@
   --VeryDarkBlue: hsl(212, 21%, 14%);
   --DarkGrayishBlue: hsl(228, 12%, 48%);
   --White: hsl(0, 0%, 100%);
+
+  --fw-regular: 500;
+  --fw-bold: 700;
+
+  --ff-accent: "Franunces", serif;
+  --ff-base: "Montserrat", sans-serif;
 }
 
-body{
-  background-color: var(--Cream);
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  min-height: 100vh;
+/* Reset */
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
   margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html, body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+
+body{
+  font-family: var(--ff-base);
+  font-weight: var(--fw-regular);
+  color: var(--DarkGrayishBlue);
+  font-size: .875rem;
+  background-color: var(--Cream);
+
+  /* Grid settings to center main content */
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  margin: 1rem;
+}
+
+/* Utilities */
+
+.prices{
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .container{
+  /* Locally scoped variable for content within this section */
+  --content-padding: 1.5rem;
+  --content-spacing: .5rem;
+
   background-color: var(--White);
   border: none;
-  border-radius: 20px; 
+  border-radius: .5rem; 
   /*Need to hide overflow so corners of image are rounded with the parent div*/
   overflow: hidden; 
   max-width: 25rem;
-  margin: 20px;
 }
 
 .image{
@@ -35,20 +108,20 @@ body{
   max-width: 100%;
 }
 .productDetails{
-  padding: 20px;
+  display: grid;
+  gap: var(--content-spacing);
+  padding: var(--content-padding);
 }
 
-.productType{
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
+.productCategory{
   text-transform: uppercase;
-  color: var(--DarkGrayishBlue);
   letter-spacing: .5em;
 }
 .productName{
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
-  font-size: 30px;
+  font-family: var(--ff-accent);
+  font-weight: var(--fw-bold);
+  color: var(--VeryDarkBlue);
+  font-size: 2rem;
   line-height: 1em;
   padding: .5em 0em;
 }
@@ -60,12 +133,7 @@ body{
   color: var(--DarkGrayishBlue);
   line-height: 1.7em;
 }
-.prices{
-  padding: 1em 0em;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
+
 
 .salePrice{
   font-family: 'Fraunces', serif;
