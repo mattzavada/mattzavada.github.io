@@ -52,22 +52,20 @@ Continued to learn how to recongize where CSS Grid and Flexbox could be used. Al
 
 Also learned a little about data attribute to store data on the HTML element and then use this in CSS to set the appropriate image for the button.
 
-Googled how to replace a picture based on screen size and learnd about <picture> and the srcset attribute. Also tried to use more semantic tags and less div's.
+Googled how to replace a picture based on screen size and learned about the picture tag and the srcset attribute. Also tried to use more semantic tags and less div's.
 
 ```html
 <picture class="image">
-        <source media="(max-width: 599px)" srcset="./images/image-product-mobile.jpg">
-        <source media="(min-width: 600px)" srcset="./images/image-product-desktop.jpg">
-        <img src="./images/image-product-mobile.jpg" alt="Gabrielle Essence Eau De Parfum Bottle">
-      </picture>
+  <source media="(max-width: 599px)" srcset="./images/image-product-mobile.jpg">
+  <source media="(min-width: 600px)" srcset="./images/image-product-desktop.jpg">
+  <img src="./images/image-product-mobile.jpg" alt="Gabrielle Essence Eau De Parfum Bottle">
+</picture>
 ```
 ```css
-
 .container{
   --content-padding: 1.5rem;
   --content-spacing: .5rem;
 }
-
 
 ```
 
