@@ -2,6 +2,7 @@
 
 :root{
   --DarkCyan: hsl(158, 36%, 37%);
+  --VeryDarkCyan: hsl(158, 36%, 20%);
   --Cream: hsl(30, 38%, 92%);
   --VeryDarkBlue: hsl(212, 21%, 14%);
   --DarkGrayishBlue: hsl(228, 12%, 48%);
@@ -40,7 +41,7 @@ html, body {
   5. Improve text rendering
 */
 body {
-  line-height: 1.5;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 /*
@@ -80,11 +81,21 @@ body{
 
 /* Utilities */
 
-.prices{
+.flex-box{
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   align-items: center;
+}
+
+.visually-hidden:not(:focus):not(:active){
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .container{
@@ -92,21 +103,24 @@ body{
   --content-padding: 1.5rem;
   --content-spacing: .5rem;
 
+  display: grid;
+
   background-color: var(--White);
   border: none;
   border-radius: .5rem; 
+
   /*Need to hide overflow so corners of image are rounded with the parent div*/
   overflow: hidden; 
-  max-width: 25rem;
+  max-width: 600px;
 }
 
-.image{
-
+@media (min-width: 600px) {
+  .container {
+    --content-padding: 2rem;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-.image > picture {
-  max-width: 100%;
-}
 .productDetails{
   display: grid;
   gap: var(--content-spacing);
@@ -147,23 +161,35 @@ body{
 
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 1rem;
   color: var(--DarkGrayishBlue);
-  text-decoration: line-through;
-
 }
 
 .button{
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  gap: .5rem;
+  justify-content: center;
+  align-items: center;
+
   background-color: var(--DarkCyan);
   border: none;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  justify-content: center;
+  border-radius: .5rem;
+  padding: .5em 1.5em;
   color: var(--White);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  display: flex;
+  font-weight: var(--fw-bold);
+}
+
+.button:is(:hover, :focus){
+  background-color: var(--VeryDarkCyan);
+}
+
+.button[data-icon="shopping-cart"]::before{
+  content: "";
+  background-image: url('../images/icon-cart.svg');
+  width: 15px;
+  height: 16px;
 }
 
 .buttonImage{
