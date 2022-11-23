@@ -195,14 +195,3 @@ body{
 .buttonImage{
   margin-right: 5px;
 }
-
-.attribution { 
-  position: absolute;
-  bottom: 0px;
-  font-size: 11px; 
-  text-align: center; 
-  padding-bottom: 15px;
-}
-.attribution a { 
-  color: hsl(228, 45%, 44%); 
-}
