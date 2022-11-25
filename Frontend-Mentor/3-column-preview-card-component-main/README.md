@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://mattzavada.github.io/Frontend-Mentor/3-column-preview-card-component/)
+- Solution URL: [Add solution URL here](https://mattzavada.github.io/Frontend-Mentor/3-column-preview-card-component-main/)
 - Live Site URL: [Add live site URL here](https://mattzavada.github.io/)
 
 ## My process
