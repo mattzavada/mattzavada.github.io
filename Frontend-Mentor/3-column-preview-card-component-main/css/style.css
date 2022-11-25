@@ -74,6 +74,7 @@ body{
   font-size: var(--fs-base);
   color: var(--LiteGray);
   min-height: 100vh;
+  background-color: var(--White);
 
   display: grid;
   justify-items: center;
