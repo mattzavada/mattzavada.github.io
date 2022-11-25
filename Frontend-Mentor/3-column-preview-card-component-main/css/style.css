@@ -35,7 +35,7 @@
   3. Allow percentage-based heights in the application
 */
 html, body {
-  height: 100%;
+  min-height: 100%;
 }
 /*
   Typographic tweaks!
@@ -73,11 +73,11 @@ body{
   font-weight: var(--fw-regular);
   font-size: var(--fs-base);
   color: var(--LiteGray);
+  min-height: 100vh;
 
   display: grid;
-  place-content: center;
-  margin-top: 3rem;
-  min-height: 100vh;
+  justify-items: center;
+  align-items: center;
 }
 
 h2{
@@ -91,24 +91,58 @@ article{
   display: grid;
   gap: 1rem;
   padding: 2rem;
+  max-width: 20rem;
+}
+
+button{
+  border: .2rem solid transparent;
+  border-radius: 3rem;
+  padding: .5rem;
+  width: 8rem;
+  background-color: var(--White);
 }
 
 .content {
   display: grid;
-  grid-template-columns: 1fr;
-  max-width: 20rem;
+  overflow: hidden;
   border-radius: .5rem;
   border:none;
+  margin-block: 3rem;
+}
+
+/* Adjust grid template to 3 column layout once viewport large enough */
+@media(min-width: 61rem){
+  .content{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .sedans {
   background-color: var(--BrightOrange);
 }
 
+button[data-car-type="sedan"]{
+  color: var(--BrightOrange);
+}
+
 .SUV{
   background-color: var(--DarkCyan);
 }
 
+button[data-car-type="suv"]{
+  color: var(--DarkCyan);
+}
+
 .luxury{
   background-color: var(--VeryDarkCyan);
+}
+
+button[data-car-type="luxury"]{
+  color: var(--VeryDarkCyan);
+}
+
+button:is(:hover, :focus){
+  background-color: transparent;
+  color: var(--White);
+  border: solid var(--White) .2rem;
 }
