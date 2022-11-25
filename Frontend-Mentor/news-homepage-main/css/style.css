@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+:root{
+
+  --ff-default: font-family: 'Inter', sans-serif;
+
+  --fw-normal: 400;
+  --fw-bold:700;
+  --fw-extrabold:800;
+
+  --SoftOrang: hsl(35, 77%, 62%);
+  --SoftRed: hsl(5, 85%, 63%);
+
+  --Off-white: hsl(36, 100%, 99%);
+  --GrayishBlue: hsl(233, 8%, 79%);
+  --DarkGrayishBlue: hsl(236, 13%, 42%);
+  --VeryDarkBlue: hsl(240, 100%, 5%);
+
+  --fs-default: .9rem;
+
+}
+
+/* Reset */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html, body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* Main Elements */
+body{
+  display: grid;
+  gap:1rem;
+  grid-template-areas: 
+  "header header header"
+  "main main aside"
+  "stories stories stories";
+  grid-template-columns: repeat(3, 1fr);
+  
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  place-content: center;
+  min-height: 100vh;
+max-width: 80%;
+  height: 100vh;
+}
+
+
+
+header{
+  grid-area: header;
+  
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+header > nav > ul > li{
+display: inline;
+padding: 1rem;
+}
+
+
+
+main{
+  grid-area: main;
+}
+
+.top-stories{
+  grid-area: stories;
+}
