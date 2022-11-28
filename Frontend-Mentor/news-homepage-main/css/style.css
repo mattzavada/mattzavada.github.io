@@ -2,11 +2,11 @@
 
 :root{
 
-  --ff-default: font-family: 'Inter', sans-serif;
+  --ff-default: 'Inter', sans-serif;
 
   --fw-normal: 400;
-  --fw-bold:700;
-  --fw-extrabold:800;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
 
   --SoftOrang: hsl(35, 77%, 62%);
   --SoftRed: hsl(5, 85%, 63%);
@@ -71,43 +71,208 @@ p, h1, h2, h3, h4, h5, h6 {
 /* Main Elements */
 body{
   display: grid;
-  gap:1rem;
+  gap: 2rem;
   grid-template-areas: 
   "header header header"
-  "main main aside"
+  "hero hero aside"
+  "title main aside"
   "stories stories stories";
   grid-template-columns: repeat(3, 1fr);
-  
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-  align-content: center;
+  max-width: 70rem;
   place-content: center;
+  
   min-height: 100vh;
-max-width: 80%;
-  height: 100vh;
+  margin: auto;
+  padding: 1rem;
+
+  font-family: var(--ff-default);
+  font-size: var(--fs-default);
+  font-weight: var(--fw-normal);
+  color: var(--DarkGrayishBlue);
+
 }
 
 
+
+/*Header*/
 
 header{
   grid-area: header;
-  
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-
-header > nav > ul > li{
-display: inline;
-padding: 1rem;
+header img{
+  margin-right: 3rem;
 }
 
+header nav{
+  align-self: center;
+  font-size: .95rem;
+}
 
+header ul{
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  list-style-type: none;
+  justify-content: flex-end;
+}
+
+header a {
+  text-decoration: none;
+  color: var(--DarkGrayishBlue);
+}
+
+.menubutton{
+  visibility: hidden;
+}
+
+/*Main*/
+picture {
+  grid-area: hero;
+}
+
+h1{
+  grid-area: title;
+  font-size: 3.5rem;
+  font-weight: var(--fw-extrabold);
+  color: var(--VeryDarkBlue);
+  line-height: 3.5rem;
+  padding-right: 2rem;
+}
 
 main{
   grid-area: main;
 }
 
+main p {
+  padding-bottom: 2rem;
+}
+
+main a{
+  background-color: var(--SoftRed);
+  padding: .7rem 1.5rem;
+  color: var(--Off-white);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+}
+
+main a:is(:hover, :focus){
+  background-color: var(--VeryDarkBlue);
+}
+
+/* Aside */
+aside{
+  grid-area: aside;
+  
+  display: grid;
+  grid-template-columns: 1fr;
+
+  padding: 2rem 1.5rem;
+  line-height: 1.5rem;
+
+  background-color: var(--VeryDarkBlue);
+  color: var(--Off-white);
+}
+
+aside h2 {
+  color: var(--SoftOrang);
+  font-weight: var(--fw-bold);
+  font-size: 2.5rem;
+  padding-bottom: 1rem;
+}
+
+aside article{
+  margin: 0;
+}
+
+aside hr{
+  height: .1px;
+}
+aside p {
+  font-size: .9rem;
+  color: var(--GrayishBlue);
+  padding-top: .5rem;
+}
+
+/*Top Stories*/
+
 .top-stories{
   grid-area: stories;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.top-stories article{
+  display: flex;
+  gap: 1.85rem;
+  align-items: flex-start;
+
+  padding: .75rem;
+}
+
+.top-stories img {
+  max-height: 8rem;
+  max-width: 8rem; 
+}
+
+.top-stories h2{
+  color: var(--GrayishBlue);
+  font-weight: var(--fw-extrabold);
+  font-size: 2rem;
+}
+
+.top-stories a{
+  text-decoration: none;
+  color: var(--VeryDarkBlue);
+  font-weight: var(--fw-extrabold);
+}
+
+@media (max-width: 900px) {
+  body {
+    grid-template-areas: 
+    "header header header"
+    "hero hero hero"
+    "title title title"
+    "main main main"
+    "stories stories aside";
+    place-content: start;
+  }
+  .top-stories{
+    grid-template-columns: 1fr;
+  }
+
+  aside hr {
+    margin-block: 1rem;
+  }
+
+  header ul{
+   gap: 1rem;
+  }
+ 
+}
+
+@media (max-width: 515px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "header"
+    "hero"
+    "title"
+    "main"
+    "aside"
+    "stories";
+    place-content: start;
+  }
+  .top-stories{
+    grid-template-columns: 1fr;
+  }
+header ul{
+  visibility: hidden;
+}
+
+  .menubutton{
+    visibility: visible;
+  }
 }
