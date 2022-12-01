@@ -82,7 +82,7 @@ body{
   place-content: center;
   
   min-height: 100vh;
-  margin: auto;
+  margin: 2rem auto;
   padding: 1rem;
 
   font-family: var(--ff-default);
@@ -101,16 +101,20 @@ header{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-header img{
+header > img{
   margin-right: 3rem;
 }
 
 header nav{
   align-self: center;
   font-size: .95rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
 }
 
-header ul{
+.navigation{
   display: flex;
   flex-direction: row;
   gap: 2.5rem;
@@ -124,6 +128,7 @@ header a {
 }
 
 .menubutton{
+  position:absolute;
   visibility: hidden;
 }
 
@@ -166,8 +171,9 @@ main a:is(:hover, :focus){
 aside{
   grid-area: aside;
   
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 
   padding: 2rem 1.5rem;
   line-height: 1.5rem;
@@ -247,7 +253,11 @@ aside p {
     margin-block: 1rem;
   }
 
-  header ul{
+  aside {
+    gap:1rem;
+  }
+
+  .navigation{
    gap: 1rem;
   }
  
@@ -265,14 +275,32 @@ aside p {
     "stories";
     place-content: start;
   }
+
+  .navigation{
+    visibility: hidden;
+    position:absolute;
+  }
+
+  .menubutton{
+    position: relative;
+    visibility: visible;
+  }
+
   .top-stories{
     grid-template-columns: 1fr;
   }
-header ul{
-  visibility: hidden;
 }
 
-  .menubutton{
-    visibility: visible;
-  }
+.nav-slider {
+  visibility: visible;
+  display: flex;
+  position: absolute;
+  gap: 1.5rem;
+  list-style-type: none;
+  flex-direction: column; 
+  justify-content: flex-start; 
+  background-color: white;
+  height: 100vh;
+  padding: 4rem 1rem;
+  width: 10rem;
 }
