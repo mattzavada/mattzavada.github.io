@@ -222,27 +222,27 @@ aside p {
   grid-area: stories;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap:1.7rem;
+  gap: 1.7rem;
+  
 }
 
 .top-stories article{
   display: flex;
   gap: 1.85rem;
-  align-items: flex-start;
 
-  padding: .75rem;
+  align-items: flex-start;
 }
 
 /* Prevent images from getting to big */
 .top-stories img {
   max-height: 8rem;
-  max-width: 8rem; 
 }
 
 .top-stories h2{
   color: var(--GrayishBlue);
   font-weight: var(--fw-extrabold);
   font-size: 2rem;
+  margin-top: -.7rem;
 }
 
 .top-stories a{
@@ -259,7 +259,6 @@ aside p {
     "title title title"
     "main main main"
     "stories stories aside";
-    place-content: start;
     grid-template-columns: .90fr .90fr 1.2fr;
 
   }
