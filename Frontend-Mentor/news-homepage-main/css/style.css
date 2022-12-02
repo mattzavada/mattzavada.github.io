@@ -116,6 +116,7 @@ header nav{
 .navigation{
   display: flex;
   flex-direction: row;
+  gap: 2.2rem;
   justify-content: flex-end;
   list-style-type: none;
 }
@@ -124,13 +125,11 @@ header nav{
 header a {
   text-decoration: none;
   color: var(--DarkGrayishBlue);
-  border: .1rem solid transparent;
-  padding: .5rem;
 }
 
 header a:hover{
-  color: var(--Off-white);
-  background-color: var(--SoftRed);
+  color: var(--SoftRed);
+  
 }
 
 /* Hide navigation hamburger until desired width */
@@ -278,7 +277,7 @@ aside p {
   }
 
   .navigation{
-    gap: .3rem;
+    gap: 1.6rem;
   }
 }
 
@@ -306,7 +305,7 @@ aside p {
 
     flex-direction: column; 
     justify-content: flex-start; 
-    gap: .8rem; 
+    gap: 1rem; 
 
     background-color: white;
     transition: right 1s;
