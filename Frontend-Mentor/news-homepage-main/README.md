@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/mattzavada/mattzavada.github.io/tree/main/Frontend-Mentor/news-homepage-main)
-- Live Site URL: [Add live site URL here](https://mattzavada.github.io/Frontend-Mentor/news-homepage-main/)
+- Solution URL: [Link](https://github.com/mattzavada/mattzavada.github.io/tree/main/Frontend-Mentor/news-homepage-main)
+- Live Site URL: [Link](https://mattzavada.github.io/Frontend-Mentor/news-homepage-main/)
 
 ## My process
 
