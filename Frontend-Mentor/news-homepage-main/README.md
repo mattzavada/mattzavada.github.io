@@ -144,7 +144,7 @@ Have a lot to learn about positioning elements correctly and changing these as t
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
+- Website - [Matthew Zavada](https://mattzavada.github.io/)
 - Frontend Mentor - [@mattzavada](https://www.frontendmentor.io/profile/yourusername)
 
 
