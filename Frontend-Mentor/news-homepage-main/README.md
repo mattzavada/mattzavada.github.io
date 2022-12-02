@@ -14,9 +14,6 @@ This is a solution to the [News homepage challenge on Frontend Mentor](https://w
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -36,10 +33,20 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/mattzavada/mattzavada.github.io/tree/main/Frontend-Mentor/news-homepage-main)
+- Live Site URL: [Add live site URL here](https://mattzavada.github.io/Frontend-Mentor/news-homepage-main/)
 
 ## My process
+
+  Added semantic tags to HTML to group areas of the page. Did some research to see what tags I might be able to use with the design. Used the picture tag to account for two different hero images based on eventual break points.
+
+  Examined layout to see where I could use Grid and Flexbox. Added layout to CSS for desktop view first since this was more complicated as I knew mobile would be a single column layout. 
+
+  Added styling to elements based on style designs. Worked to ensure the styling matched as viewport changed in size. Decided to add a third break point in the middle as content was not looking good as the viewport shrinked. Decided to go with grid areas to make it easier to change layout.
+
+  For mobile navigation I decided to restyle the current navigation menu instead of creating a duplicate. This was a nice changelle in changing positioning and visibility. Followed a tutorial from Kevin Powell on how to animate an svg for the hamburger button. Still have a lot to learn about svg's. 
+
+  Researched how to use Javascript to add and remove classes and styling to CSS classes. Also learned about grabbing the aria-enabled attribute value to help with the navigation toggle between enabled and not. Was able to use the one function to activate the svg animation, slide out the navigation panel and to add a overlay to the page behind the panel. 
 
 ### Built with
 
@@ -47,60 +54,98 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- JavaScript
+- SVG animation
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+Learned about creating SVG's and animating them. Not the easiest to understand.
 
-To see how you can add code snippets, see below:
+Got some practice in using CSS Grid template areas. This was a nice easy way to edit layouts quickly. Happy with reusing the desktop navigation for the mobile navigation panel. Changing its appearance, styling, and animating it by adding a class to change it's position.
+
+Happy that my research helped me to find solutions to transitions, animated navigation button, and changing classes and attributes in Javascript to make it all work.
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<button class="navigationbutton" aria-controls="navigation" aria-expanded="false">
+          <svg class="hamburger" viewBox="0 0 100 100" width="40">
+            <rect class="line ham_top" 
+                  width="80" height="10"
+                  x="10" y="25" rx="5">
+            </rect>
+            <rect class="line ham_middle" 
+                  width="80" height="10"
+                  x="10" y="45" rx="5">
+            </rect>
+            <rect class="line ham_bottom" 
+                  width="80" height="10"
+                  x="10" y="65" rx="5">
+            </rect>
+          </svg>
+        </button>
+        
 ```
 ```css
-.proud-of-this-css {
-  color: papayawhip;
-}
+.navigation{
+    position:absolute;
+    height: 100%;
+    margin-top: -3rem; /*Move up outside of grid context */
+    padding: 7rem 1rem;
+    width: 15rem;
+    right: -15rem;
+
+    flex-direction: column; 
+    justify-content: flex-start; 
+    gap: .8rem; 
+
+    background-color: white;
+    transition: right 1s;
+
+    z-index: 2; /* Brings above dark overlay */
+  }
+
+  .slide-nav-out{
+      right: 0rem; /* Change position from side with transition */
+    }
 ```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+nav_button.addEventListener('click', ()=> {
+
+  const isOpened = nav_button.getAttribute('aria-expanded');
+
+  if(isOpened === 'false'){
+
+    nav_button.setAttribute('aria-expanded','true');
+
+    nav_panel.classList.add('slide-nav-out');
+
+    overlay.style.display = "block";
+
+  } else {
+
+    nav_button.setAttribute('aria-expanded', 'false');
+
+    nav_panel.classList.remove('slide-nav-out');
+
+    overlay.style.display = "none";
+
+  }
+});
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+Have a lot to learn about positioning elements correctly and changing these as the viewport changes. I haven't worked with JavaScript in some time so getting used to how this works and can manipulate the DOM is fun. 
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Animated Hamburger Icon](https://www.youtube.com/watch?v=R00QiudbD4Y&t=3164s) - This helped me to use an animated SVG instead of just using the svg files that came with the project.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [W3 Schools](https://www.w3schools.com/howto/howto_css_overlay.asp) - This gave me the idea for how to handle the dark overlay
 
 ## Author
 
 - Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Frontend Mentor - [@mattzavada](https://www.frontendmentor.io/profile/yourusername)
 
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
 
-## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**

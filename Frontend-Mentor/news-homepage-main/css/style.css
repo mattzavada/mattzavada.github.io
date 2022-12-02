@@ -320,7 +320,7 @@ aside p {
 
   /* Slide out navigation onClick and enable dark overlay */
   .slide-nav-out{
-      right:0rem;
+      right: 0rem;
     }
 
   .dark-overlay{
