@@ -5,33 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-
   <link rel="stylesheet" href="css/style.css">
-  
+  <script src="js/main.js" defer></script>
+
   <title>Frontend Mentor | News homepage</title>
 
-  <script>
-  function openNav() {
-    document.getElementById("navigation").className = "nav-slider";
-}
-
-  </script>
-
 </head>
+
+<!-- Break points 930px and 515px -->
+
 <body>
-    <!--Header section-->
+    
+  <!--Header section-->
 
     <header>
       <img src="./assets/images/logo.svg" alt="Logo">
-      <nav >
-          <ul id="navigation" class="navigation">
+      <nav>
+          <ul class="navigation">
             <li><a href="">Home</a></li>
             <li><a href="">New</a></li>
             <li><a href="">Popular</a></li>
             <li><a href="">Trending</a></li>
             <li><a href="">Categories</a></li>
           </ul>
-          <img class="menubutton" src="assets/images/icon-menu.svg" onclick="openNav()">
+
+        <button class="navigationbutton" aria-controls="navigation" aria-expanded="false">
+          <svg class="hamburger" viewBox="0 0 100 100" width="40">
+            <rect class="line ham_top" 
+                  width="80" height="10"
+                  x="10" y="25" rx="5">
+            </rect>
+            <rect class="line ham_middle" 
+                  width="80" height="10"
+                  x="10" y="45" rx="5">
+            </rect>
+            <rect class="line ham_bottom" 
+                  width="80" height="10"
+                  x="10" y="65" rx="5">
+            </rect>
+          </svg>
+        </button>
       </nav>
     </header>
   
@@ -60,7 +73,6 @@
         <article>
           <h3>Hydrogen VS Electric Cars</h3>
           <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
-          
         </article>
       </div>
       <hr>
@@ -80,7 +92,6 @@
           </p>
         </article>
       </div>
-
     </aside>
 
     <!--Top Stories Section-->
@@ -112,6 +123,9 @@
       </article>
     </section>
   
+  <!-- Overlay -->
+  <div class="dark-overlay"></div>
+
   <!--Footer Section-->
   <footer>
 

@@ -78,8 +78,7 @@ body{
   "title main aside"
   "stories stories stories";
   grid-template-columns: repeat(3, 1fr);
-  max-width: 70rem;
-  place-content: center;
+  max-width: 71rem;
   
   min-height: 100vh;
   margin: 2rem auto;
@@ -92,8 +91,6 @@ body{
 
 }
 
-
-
 /*Header*/
 
 header{
@@ -101,6 +98,7 @@ header{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
+
 header > img{
   margin-right: 3rem;
 }
@@ -114,22 +112,33 @@ header nav{
 
 }
 
+/* Adjustment to navigation list styling and layout */
 .navigation{
   display: flex;
   flex-direction: row;
-  gap: 2.5rem;
-  list-style-type: none;
   justify-content: flex-end;
+  list-style-type: none;
 }
 
+/* Navigation links */
 header a {
   text-decoration: none;
   color: var(--DarkGrayishBlue);
+  border: .1rem solid transparent;
+  padding: .5rem;
 }
 
-.menubutton{
+header a:hover{
+  color: var(--Off-white);
+  background-color: var(--SoftRed);
+}
+
+/* Hide navigation hamburger until desired width */
+.navigationbutton{
   position:absolute;
   visibility: hidden;
+  border: none;
+  background-color: transparent;
 }
 
 /*Main*/
@@ -154,9 +163,10 @@ main p {
   padding-bottom: 2rem;
 }
 
+/* Main button link */
 main a{
   background-color: var(--SoftRed);
-  padding: .7rem 1.5rem;
+  padding: .9rem 2.3rem;
   color: var(--Off-white);
   text-decoration: none;
   text-transform: uppercase;
@@ -186,11 +196,15 @@ aside h2 {
   color: var(--SoftOrang);
   font-weight: var(--fw-bold);
   font-size: 2.5rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2.5rem;
 }
 
 aside article{
   margin: 0;
+}
+
+aside h3{
+  font-size: 1.3rem;
 }
 
 aside hr{
@@ -208,6 +222,7 @@ aside p {
   grid-area: stories;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap:1.7rem;
 }
 
 .top-stories article{
@@ -218,6 +233,7 @@ aside p {
   padding: .75rem;
 }
 
+/* Prevent images from getting to big */
 .top-stories img {
   max-height: 8rem;
   max-width: 8rem; 
@@ -235,7 +251,7 @@ aside p {
   font-weight: var(--fw-extrabold);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 930px) {
   body {
     grid-template-areas: 
     "header header header"
@@ -244,7 +260,11 @@ aside p {
     "main main main"
     "stories stories aside";
     place-content: start;
+    grid-template-columns: .90fr .90fr 1.2fr;
+
   }
+
+  /* Condense top-stories to 1 column and adjust margin & gaps for other items to display correctly*/
   .top-stories{
     grid-template-columns: 1fr;
   }
@@ -258,9 +278,8 @@ aside p {
   }
 
   .navigation{
-   gap: 1rem;
+    gap: .3rem;
   }
- 
 }
 
 @media (max-width: 515px) {
@@ -276,31 +295,86 @@ aside p {
     place-content: start;
   }
 
+  /* Position navigation off screen and vertical */
   .navigation{
-    visibility: hidden;
     position:absolute;
+    height: 100%;
+    margin-top: -3rem; /*Move up outside of grid context */
+    padding: 7rem 1rem;
+    width: 15rem;
+    right: -15rem;
+
+    flex-direction: column; 
+    justify-content: flex-start; 
+    gap: .8rem; 
+
+    background-color: white;
+    transition: right 1s;
+
+    z-index: 2; /* Brings above dark overlay */
   }
 
-  .menubutton{
+  .navigationbutton{
+    z-index: 2; /* Brings above dark overlay */
+  }
+
+  /* Slide out navigation onClick and enable dark overlay */
+  .slide-nav-out{
+      right:0rem;
+    }
+
+  .dark-overlay{
+    position: fixed;
+    display: none; 
+    width: 100%; 
+    height: 100%; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1; /* Ensures overlays all content on page */
+  }
+
+  /* Display navigation hamburger button once screen width is reached*/
+  .navigationbutton{
     position: relative;
     visibility: visible;
   }
-
-  .top-stories{
-    grid-template-columns: 1fr;
-  }
 }
 
-.nav-slider {
-  visibility: visible;
-  display: flex;
-  position: absolute;
-  gap: 1.5rem;
-  list-style-type: none;
-  flex-direction: column; 
-  justify-content: flex-start; 
-  background-color: white;
-  height: 100vh;
-  padding: 4rem 1rem;
-  width: 10rem;
+
+/* Navigation hambuger annimation */
+
+.navigationbutton .line {
+  transition: 
+  rotate 300ms ease-in,
+  y 300ms ease-in 300ms,
+  opacity 0ms 300ms;
+  ;
+  transform-origin: center;
+}
+
+.navigationbutton[aria-expanded="true"] .line {
+  transition: 
+  y 300ms ease-in,
+  rotate 300ms ease-in 300ms,
+  opacity 0ms 300ms;
+  ;
+}
+
+.navigationbutton[aria-expanded="true"] :is(.ham_top, .ham_bottom){
+  y: 45;
+}
+
+.navigationbutton[aria-expanded="true"] .ham_top{
+  rotate: 45deg;
+}
+
+.navigationbutton[aria-expanded="true"] .ham_middle{
+  opacity: 0;
+}
+
+.navigationbutton[aria-expanded="true"] .ham_bottom{
+  rotate: -45deg;
 }
