@@ -98,6 +98,7 @@ header{
   grid-area: header;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  place-content: center;
 }
 
 header > img{
