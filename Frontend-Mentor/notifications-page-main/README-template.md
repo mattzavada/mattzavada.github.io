@@ -47,6 +47,14 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
+Examined provided design to determine what structure is needed for the HTML. Noticed that the page does not stand on its own and would likely be a component on a page. Decided to wrap all code in a section tag to house all the content. Within the section are sections for various types of notifications - reactions, followed, people joining or leaving a group, private messages, comments on pictures.
+
+Shared styles between all section cards - header: profile picture, name associated with notification, description of action, title of the item the action was taken on, timestamp. Unread messages have background color and red dot at the end of the notification header. Private messages are subset of the notification header. 
+
+Since all notifications have the potential to be unread, added a span tag to toggle based on data-unread attribute. Set aria role to status.
+
+Notification header area lines up nicely with sides of notification cards. Will use CSS grid to layout the header and cards. 
+
 
 ### Built with
 
