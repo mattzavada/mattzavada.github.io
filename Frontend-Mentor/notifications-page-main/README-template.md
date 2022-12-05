@@ -1,6 +1,6 @@
 # Frontend Mentor - Notifications page solution
 
-This is a solution to the [Notifications page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/notifications-page-DqK5QAmKbC). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Notifications page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/notifications-page-DqK5QAmKbC). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -35,7 +35,7 @@ Users should be able to:
 
 Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
+Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
 
 Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
 
@@ -47,14 +47,14 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
+
 Examined provided design to determine what structure is needed for the HTML. Noticed that the page does not stand on its own and would likely be a component on a page. Decided to wrap all code in a section tag to house all the content. Within the section are sections for various types of notifications - reactions, followed, people joining or leaving a group, private messages, comments on pictures.
 
-Shared styles between all section cards - header: profile picture, name associated with notification, description of action, title of the item the action was taken on, timestamp. Unread messages have background color and red dot at the end of the notification header. Private messages are subset of the notification header. 
+Shared styles between all section cards - header: profile picture, name associated with notification, description of action, title of the item the action was taken on, timestamp. Unread messages have background color and red dot at the end of the notification header. Private messages are subset of the notification header.
 
 Since all notifications have the potential to be unread, added a span tag to toggle based on data-unread attribute. Set aria role to status.
 
-Notification header area lines up nicely with sides of notification cards. Will use CSS grid to layout the header and cards. 
-
+Notification header area lines up nicely with sides of notification cards. Will use CSS grid to layout the header and cards.
 
 ### Built with
 
@@ -78,15 +78,17 @@ To see how you can add code snippets, see below:
 ```html
 <h1>Some HTML code I'm proud of</h1>
 ```
+
 ```css
 .proud-of-this-css {
   color: papayawhip;
 }
 ```
+
 ```js
 const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+  console.log("🎉");
+};
 ```
 
 If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
