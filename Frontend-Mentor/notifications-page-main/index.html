@@ -12,15 +12,17 @@
       href="./images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
     <title>Frontend Mentor | Notifications page</title>
   </head>
   <body>
     <section class="notifications">
       <section class="notification__header">
         <h2>Notifications</h2>
-        <div class="unread__count">3</div>
-        <a href="" class="mark__all__read">Mark all as read</a>
+        <div class="unread__count" id="unread__count">3</div>
+        <a href="" id="mark__all__read" class="mark__all__read"
+          >Mark all as read</a
+        >
       </section>
 
       <section class="notification__card" data-unread="true">
