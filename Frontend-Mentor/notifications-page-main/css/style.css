@@ -80,7 +80,7 @@ h6 {
 
 body {
   background-color: var(--verylightgrayishblue);
-  margin: 2rem auto;
+  margin: 4rem auto;
   display: flex;
   justify-content: center;
   font-family: var(--ff-default);
@@ -93,13 +93,13 @@ body {
 /* Main Grid Layout */
 
 .notifications {
-  max-width: 75%;
+  max-width: 41rem;
   background-color: var(--white);
   border: none;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0.5rem 0.5rem 1rem var(--lightgrayishblue1);
-  padding: 1rem;
+  padding: 2rem;
 
   display: flex;
   flex-direction: column;
@@ -136,10 +136,11 @@ body {
   margin: 0;
 }
 
-.notification__header a {
+.notification__header .mark__all__read {
   margin-left: auto;
   text-decoration: none;
   color: var(--darkgrayishblue);
+  cursor: pointer;
 }
 
 /* Notification Card */
@@ -160,10 +161,10 @@ body {
 
   border: none;
   border-radius: 0.5rem;
-  box-shadow: 0.1rem 0.1rem 0.1rem var(--verylightgrayishblue);
+  box-shadow: 0.2rem 0.2rem 0.1rem var(--verylightgrayishblue);
 }
 
-.notification__card[data-unread="true"] .notification__unread {
+.notification__card[data-unread="true"] .notification__dot {
   background-color: var(--red);
   width: 0.5rem;
   height: 0.5rem;
@@ -216,7 +217,7 @@ body {
 .notification__picture {
   grid-area: notification__picture;
 
-  height: 2.5rem;
+  height: 2.6rem;
   margin-left: auto;
   padding-left: 1rem;
 }
