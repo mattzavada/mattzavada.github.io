@@ -3,13 +3,23 @@
   <head> </head>
   <body>
     <h1>Todo App</h1>
-    <div id="todos"></div>
+    <h2 id="left-to-complete"></h2>
     <input id="search-query" type="text" placeholder="Type to search" />
+    <label for="hideCompleted">
+      <input type="checkbox" name="hideCompleted" id="hide-completed" checked />
+      Hide Completed
+    </label>
+    <div id="todos"></div>
 
-    <label for="clearCompleted">
-      <input type="checkbox" name="clearCompleted" id="clear-completed" /> Clear
-      Completed </label
-    ><button id="add-todo">Add todo</button>
-    <script src="notes-app.js"></script>
+    <form id="create-todo-form">
+      <input
+        type="text"
+        id="new-todo-text"
+        placeholder="Enter new todo"
+        name="todoText" />
+      <button id="save-todo" type="submit">Save todo</button>
+    </form>
+
+    <script src="todo-app.js"></script>
   </body>
 </html>
