@@ -87,7 +87,11 @@ formCardMonth.addEventListener("input", function (e) {
 });
 
 formCardMonth.addEventListener("change", function (e) {
-  if (formCardMonth.value > 0 && formCardMonth.value < 10) {
+  if (
+    formCardMonth.value > 0 &&
+    formCardMonth.value < 10 &&
+    formCardMonth.value.length < 2
+  ) {
     cardMonth.textContent = "0" + formCardMonth.value;
     formCardMonth.value = cardMonth.textContent;
   }
