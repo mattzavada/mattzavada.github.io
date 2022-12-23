@@ -38,8 +38,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/mattzavada/mattzavada.github.io/tree/main/Frontend-Mentor/interactive-card-details-form-main)
-- Live Site URL: [Add live site URL here](https://mattzavada.github.io/Frontend-Mentor/interactive-card-details-form-main/)
+- Live Site URL: [Github Pages](https://mattzavada.github.io/Frontend-Mentor/interactive-card-details-form-main/)
 
 ## My process
 
