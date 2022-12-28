@@ -9,6 +9,11 @@
       <input type="checkbox" name="hideCompleted" id="hide-completed" checked />
       Hide Completed
     </label>
+    <select name="filterBy" id="filter-by">
+      <option value="byEdited">Sort by last edited</option>
+      <option value="byCreated">Sort by recent by created</option>
+      <option value="alphabetical">Sort alphabetically</option>
+    </select>
     <div id="todos"></div>
 
     <form id="create-todo-form">
