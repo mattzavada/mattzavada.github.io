@@ -1,30 +1,11 @@
-const todos = [
-  {
-    text: "Take shower",
-    completed: false,
-    dueDate: new Date("2023", "01", "20"),
-  },
-  {
-    text: "Study for meeting",
-    completed: false,
-    dueDate: new Date("2023", "02", "20"),
-  },
-  {
-    text: "Walk dog",
-    completed: true,
-    dueDate: new Date("2022", "01", "20"),
-  },
-  {
-    text: "Eat dinner",
-    completed: false,
-    dueDate: new Date("2023", "01", "02"),
-  },
-  {
-    text: "Clean car",
-    completed: true,
-    dueDate: new Date("2023", "01", "20"),
-  },
-];
+let todos = [];
+
+// Check for existing data
+const todosJSON = localStorage.getItem("todos");
+
+if (todosJSON !== null) {
+  todos = JSON.parse(todosJSON);
+}
 
 // Object for tracking filters
 const filters = {
@@ -38,18 +19,27 @@ const renderTodos = function (array, filter) {
   document.querySelector("#todos").innerHTML = "";
   document.querySelector("#left-to-complete").textContent = "";
 
-  const filteredList = array.filter(function (item) {
-    const searchTextMatch = item.text
-      .toLowerCase()
-      .includes(filter.searchText.toLowerCase());
-    const hideCompletedMatch = !filter.filterCompleted || !item.completed;
+  // Initialize filtered list
+  let filteredList = array;
 
-    // Return object if it matches the string search and the hide completed checkbox
-    return searchTextMatch && hideCompletedMatch;
-  });
+  //Obtain number of todos not completed
+  let numNotCompleted = function (array) {
+    return array.filter((item) => !item.completed).length;
+  };
 
-  // Obtain total of unfinished todos
-  const numNotCompleted = filteredList.filter((item) => !item.completed).length;
+  // Filter array based on text filter
+  if (filter.searchText != "") {
+    filteredList = array.filter(function (item) {
+      return item.text.toLowerCase().includes(filter.searchText.toLowerCase());
+    });
+  }
+
+  // Filter array based on completed
+  if (filter.filterCompleted) {
+    filteredList = filteredList.filter(function (item) {
+      return !item.completed;
+    });
+  }
 
   // Render todo elements and append to div
   filteredList.forEach(function (todo) {
@@ -60,7 +50,9 @@ const renderTodos = function (array, filter) {
 
   document.querySelector(
     "#left-to-complete"
-  ).textContent = `You have ${numNotCompleted} todos left to complete`;
+  ).textContent = `You have ${numNotCompleted(
+    filteredList
+  )} todos left to complete`;
 };
 
 // Eventlistners
@@ -86,6 +78,11 @@ document
         dueDate: new Date(),
       });
       e.target.elements.todoText.value = "";
+
+      // Save array to local storage
+      localStorage.setItem("todos", JSON.stringify(todos));
+
+      // Render todos
       renderTodos(todos, filters);
     } else {
       alert("Please enter text for the new todo");
@@ -95,9 +92,14 @@ document
 // Completed check box
 document
   .querySelector("#hide-completed")
-  .addEventListener("change", function (e) {
-    filters.filterCompleted = e.target.checked;
-    renderTodos(todos, filters);
+  .addEventListener("click", function (e) {
+    if (e.target.checked) {
+      filters.filterCompleted = true;
+      renderTodos(todos, filters);
+    } else {
+      filters.filterCompleted = false;
+      renderTodos(todos, filters);
+    }
   });
 
 // Initialize page
