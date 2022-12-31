@@ -19,27 +19,18 @@ const renderTodos = function (array, filter) {
   document.querySelector("#todos").innerHTML = "";
   document.querySelector("#left-to-complete").textContent = "";
 
-  // Initialize filtered list
-  let filteredList = array;
+  const filteredList = array.filter(function (item) {
+    const searchTextMatch = item.text
+      .toLowerCase()
+      .includes(filter.searchText.toLowerCase());
+    const hideCompletedMatch = !filter.filterCompleted || !item.completed;
 
-  //Obtain number of todos not completed
-  let numNotCompleted = function (array) {
-    return array.filter((item) => !item.completed).length;
-  };
+    // Return object if it matches the string search and the hide completed checkbox
+    return searchTextMatch && hideCompletedMatch;
+  });
 
-  // Filter array based on text filter
-  if (filter.searchText != "") {
-    filteredList = array.filter(function (item) {
-      return item.text.toLowerCase().includes(filter.searchText.toLowerCase());
-    });
-  }
-
-  // Filter array based on completed
-  if (filter.filterCompleted) {
-    filteredList = filteredList.filter(function (item) {
-      return !item.completed;
-    });
-  }
+  // Obtain total of unfinished todos
+  const numNotCompleted = filteredList.filter((item) => !item.completed).length;
 
   // Render todo elements and append to div
   filteredList.forEach(function (todo) {
@@ -50,9 +41,7 @@ const renderTodos = function (array, filter) {
 
   document.querySelector(
     "#left-to-complete"
-  ).textContent = `You have ${numNotCompleted(
-    filteredList
-  )} todos left to complete`;
+  ).textContent = `You have ${numNotCompleted} todos left to complete`;
 };
 
 // Eventlistners
@@ -92,14 +81,9 @@ document
 // Completed check box
 document
   .querySelector("#hide-completed")
-  .addEventListener("click", function (e) {
-    if (e.target.checked) {
-      filters.filterCompleted = true;
-      renderTodos(todos, filters);
-    } else {
-      filters.filterCompleted = false;
-      renderTodos(todos, filters);
-    }
+  .addEventListener("change", function (e) {
+    filters.filterCompleted = e.target.checked;
+    renderTodos(todos, filters);
   });
 
 // Initialize page
