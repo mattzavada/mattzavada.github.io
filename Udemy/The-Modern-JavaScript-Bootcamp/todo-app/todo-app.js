@@ -1,39 +1,16 @@
-const todos = [
-  {
-    text: "Take shower",
-    completed: false,
-    dueDate: new Date("2023", "01", "20"),
-  },
-  {
-    text: "Study for meeting",
-    completed: false,
-    dueDate: new Date("2023", "02", "20"),
-  },
-  {
-    text: "Walk dog",
-    completed: true,
-    dueDate: new Date("2022", "01", "20"),
-  },
-  {
-    text: "Eat dinner",
-    completed: false,
-    dueDate: new Date("2023", "01", "02"),
-  },
-  {
-    text: "Clean car",
-    completed: true,
-    dueDate: new Date("2023", "01", "20"),
-  },
-];
+let todos = [];
+
+// Check for existing data
+const todosJSON = localStorage.getItem("todos");
+
+if (todosJSON !== null) {
+  todos = JSON.parse(todosJSON);
+}
 
 // Object for tracking filters
 const filters = {
   searchText: "",
   filterCompleted: true,
-};
-
-const numNotCompleted = function (array) {
-  return array.filter((item) => !item.completed).length;
 };
 
 //Render todos on screen
@@ -44,6 +21,11 @@ const renderTodos = function (array, filter) {
 
   // Initialize filtered list
   let filteredList = array;
+
+  //Obtain number of todos not completed
+  let numNotCompleted = function (array) {
+    return array.filter((item) => !item.completed).length;
+  };
 
   // Filter array based on text filter
   if (filter.searchText != "") {
@@ -68,7 +50,9 @@ const renderTodos = function (array, filter) {
 
   document.querySelector(
     "#left-to-complete"
-  ).textContent = `You have ${numNotCompleted(todos)} todos left to complete`;
+  ).textContent = `You have ${numNotCompleted(
+    filteredList
+  )} todos left to complete`;
 };
 
 // Eventlistners
@@ -94,6 +78,11 @@ document
         dueDate: new Date(),
       });
       e.target.elements.todoText.value = "";
+
+      // Save array to local storage
+      localStorage.setItem("todos", JSON.stringify(todos));
+
+      // Render todos
       renderTodos(todos, filters);
     } else {
       alert("Please enter text for the new todo");
