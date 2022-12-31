@@ -1,11 +1,30 @@
-let todos = [];
-
-// Check for existing data
-const todosJSON = localStorage.getItem("todos");
-
-if (todosJSON !== null) {
-  todos = JSON.parse(todosJSON);
-}
+const todos = [
+  {
+    text: "Take shower",
+    completed: false,
+    dueDate: new Date("2023", "01", "20"),
+  },
+  {
+    text: "Study for meeting",
+    completed: false,
+    dueDate: new Date("2023", "02", "20"),
+  },
+  {
+    text: "Walk dog",
+    completed: true,
+    dueDate: new Date("2022", "01", "20"),
+  },
+  {
+    text: "Eat dinner",
+    completed: false,
+    dueDate: new Date("2023", "01", "02"),
+  },
+  {
+    text: "Clean car",
+    completed: true,
+    dueDate: new Date("2023", "01", "20"),
+  },
+];
 
 // Object for tracking filters
 const filters = {
@@ -67,11 +86,6 @@ document
         dueDate: new Date(),
       });
       e.target.elements.todoText.value = "";
-
-      // Save array to local storage
-      localStorage.setItem("todos", JSON.stringify(todos));
-
-      // Render todos
       renderTodos(todos, filters);
     } else {
       alert("Please enter text for the new todo");
